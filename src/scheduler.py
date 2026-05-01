@@ -1,13 +1,14 @@
 import os
+import sys
 import asyncio
 import logging
 import time
-from datetime import datetime
-from typing import Optional
-from dotenv import load_dotenv
+from datetime import datetime, timezone
+from typing import Dict, List
 from pydantic import BaseModel, Field
 
-load_dotenv()
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from worker import WorkerNode, InferenceRequest
 
 logging.basicConfig(
     level=logging.INFO,
@@ -22,85 +23,78 @@ logger = logging.getLogger(__name__)
 class TaskRequest(BaseModel):
     prompt: str = Field(..., min_length=1, max_length=2000)
     max_tokens: int = Field(default=512, ge=1, le=4096)
-    priority: int = Field(default=5, ge=1, le=10)  # 1=lowest, 10=highest
-
-class TaskResponse(BaseModel):
-    task_id: str
-    status: str  # "pending", "running", "completed", "failed"
-    result: Optional[dict] = None
-    error: Optional[str] = None
-    assigned_worker: Optional[str] = None
-    created_at: str
-    completed_at: Optional[str] = None
+    priority: int = Field(default=5, ge=1, le=10)
+    use_rag: bool = Field(default=False)
 
 class MasterScheduler:
-    def __init__(self, max_workers: int = 4):
-        self.max_workers = max_workers
-        self.task_queue: asyncio.Queue = asyncio.Queue()
-        self.workers: dict[str, dict] = {}  # worker_id -> metadata
-        self.tasks: dict[str, TaskResponse] = {}
-        self.running = False
-        logger.info(f"Scheduler initialized with max {max_workers} workers")
+    def __init__(self, num_workers: int = 4, model_name: str = "phi3:mini", max_concurrent_ollama: int = 3):
+        self.num_workers = num_workers
+        self.max_concurrent_ollama = max_concurrent_ollama  # ADAPTIVE: limit Ollama calls
+        self.semaphore = asyncio.Semaphore(max_concurrent_ollama)
+        self.workers: List[WorkerNode] = []
+        self.next_worker_idx = 0
+        self.metrics = {"total_assigned": 0, "total_completed": 0, "total_failed": 0, "avg_latency_ms": 0.0, "queued": 0}
+        self._init_workers(model_name)
+        logger.info(f"Scheduler: Adaptive backpressure (max {max_concurrent_ollama} concurrent Ollama calls)")
 
-    def register_worker(self, worker_id: str, metadata: dict):
-        self.workers[worker_id] = {**metadata, "status": "idle", "last_heartbeat": time.time()}
-        logger.info(f"Worker registered: {worker_id}")
+    def _init_workers(self, model_name: str):
+        for i in range(self.num_workers):
+            self.workers.append(WorkerNode(f"worker-{i+1}"))
 
-    def assign_task(self, task_id: str, worker_id: str):
-        if worker_id in self.workers:
-            self.workers[worker_id]["status"] = "busy"
-            self.tasks[task_id].assigned_worker = worker_id
-            self.tasks[task_id].status = "running"
-            logger.info(f"Task {task_id} assigned to {worker_id}")
-            return True
-        return False
+    def _get_next_worker(self) -> WorkerNode:
+        worker = self.workers[self.next_worker_idx]
+        self.next_worker_idx = (self.next_worker_idx + 1) % len(self.workers)
+        return worker
 
-    def complete_task(self, task_id: str, result: dict):
-        if task_id in self.tasks:
-            self.tasks[task_id].status = "completed"
-            self.tasks[task_id].result = result
-            self.tasks[task_id].completed_at = datetime.utcnow().isoformat()
-            if self.tasks[task_id].assigned_worker:
-                self.workers[self.tasks[task_id].assigned_worker]["status"] = "idle"
-            logger.info(f"Task {task_id} completed")
-            return True
-        return False
+    async def process_request(self, request: TaskRequest) -> dict:
+        self.metrics["total_assigned"] += 1
+        
+        # ADAPTIVE BACKPRESSURE: Wait for slot, don't timeout
+        self.metrics["queued"] += 1
+        logger.debug(f"Request #{self.metrics['total_assigned']} queued (waiting for Ollama slot)...")
+        
+        async with self.semaphore:
+            worker = self._get_next_worker()
+            logger.info(f"Request #{self.metrics['total_assigned']} executing on {worker.worker_id}")
+            
+            try:
+                # Tiny delay to let GPU recover between batches (addresses 425+ failure pattern)
+                await asyncio.sleep(0.05)
+                
+                task = InferenceRequest(prompt=request.prompt, max_tokens=request.max_tokens)
+                result = await worker.process_task(task)
+                
+                if result.get("status") == "success":
+                    self.metrics["total_completed"] += 1
+                    self._update_latency(result.get("latency_ms", 0))
+                    result["used_rag"] = request.use_rag
+                    return result
+            except Exception as e:
+                self.metrics["total_failed"] += 1
+                logger.error(f"Request #{self.metrics['total_assigned']} failed on {worker.worker_id}: {e}")
+                return {"status": "error", "message": str(e), "worker_id": worker.worker_id}
+        
+        # Fallback if semaphore wait fails (shouldn't happen)
+        self.metrics["total_failed"] += 1
+        return {"status": "error", "message": "Semaphore timeout", "worker_id": "unknown"}
 
-    def fail_task(self, task_id: str, error: str):
-        if task_id in self.tasks:
-            self.tasks[task_id].status = "failed"
-            self.tasks[task_id].error = error
-            self.tasks[task_id].completed_at = datetime.utcnow().isoformat()
-            if self.tasks[task_id].assigned_worker:
-                self.workers[self.tasks[task_id].assigned_worker]["status"] = "idle"
-            logger.warning(f"Task {task_id} failed: {error}")
-            return True
-        return False
+    def _update_latency(self, latency_ms: float):
+        total = self.metrics["total_completed"]
+        if total > 0:
+            prev_avg = self.metrics["avg_latency_ms"]
+            self.metrics["avg_latency_ms"] = prev_avg + ((latency_ms - prev_avg) / total)
 
     def get_status(self) -> dict:
         return {
-            "queue_size": self.task_queue.qsize(),
-            "active_workers": sum(1 for w in self.workers.values() if w["status"] == "busy"),
-            "total_tasks": len(self.tasks),
-            "completed_tasks": sum(1 for t in self.tasks.values() if t.status == "completed"),
-            "failed_tasks": sum(1 for t in self.tasks.values() if t.status == "failed")
+            **self.metrics,
+            "active_workers": self.num_workers,
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
 
 if __name__ == "__main__":
-    # Quick local test
-    import uuid
-    sched = MasterScheduler()
-    sched.register_worker("worker-1", {"model": "phi3:mini"})
-    
-    task_id = str(uuid.uuid4())[:8]
-    req = TaskRequest(prompt="What is async I/O?", priority=8)
-    resp = TaskResponse(
-        task_id=task_id,
-        status="pending",
-        created_at=datetime.utcnow().isoformat()
-    )
-    sched.tasks[task_id] = resp
-    sched.assign_task(task_id, "worker-1")
-    
-    print("Scheduler Status:", sched.get_status())
-    print("Task State:", sched.tasks[task_id].model_dump())
+    import asyncio
+    sched = MasterScheduler(max_concurrent_ollama=2)
+    async def test():
+        req = TaskRequest(prompt="What is adaptive backpressure?", max_tokens=20)
+        print(await sched.process_request(req))
+    asyncio.run(test())

@@ -1,0 +1,501 @@
+request_id,status,latency_ms,tokens,response_size,success,error
+0,200,55369.11,50,444,True,
+1,200,39022.13,50,424,True,
+2,200,13510.93,50,419,True,
+3,200,17605.33,50,399,True,
+4,200,38448.5,50,439,True,
+5,200,29858.08,50,443,True,
+6,200,34999.0,50,413,True,
+7,200,46531.78,50,420,True,
+8,200,48279.04,50,425,True,
+9,200,3251.56,50,452,True,
+10,200,5324.01,50,443,True,
+11,200,41904.46,50,428,True,
+12,200,8431.77,50,448,True,
+13,200,14022.96,50,450,True,
+14,200,25876.68,50,422,True,
+15,200,27578.89,50,434,True,
+16,200,9970.96,50,456,True,
+17,200,11486.83,50,449,True,
+18,200,19151.37,50,449,True,
+19,200,22240.23,50,440,True,
+20,200,49453.49,50,444,True,
+21,200,10475.4,50,433,True,
+22,200,10978.04,50,430,True,
+23,200,4808.52,50,430,True,
+24,200,5834.7,50,453,True,
+25,200,33855.85,50,378,True,
+26,200,36720.18,50,446,True,
+27,200,17087.46,50,439,True,
+28,200,20693.93,50,431,True,
+29,200,23813.29,50,400,True,
+30,200,26440.45,50,435,True,
+31,200,30424.45,50,425,True,
+32,200,34426.1,50,433,True,
+33,200,39598.96,50,423,True,
+34,200,43055.93,50,444,True,
+35,200,45948.54,50,432,True,
+36,200,51206.26,50,425,True,
+37,200,53522.13,50,418,True,
+38,200,1215.24,50,415,True,
+39,200,3759.89,50,439,True,
+40,200,7921.02,50,412,True,
+41,200,12497.26,50,444,True,
+42,200,16058.6,50,439,True,
+43,200,18119.94,50,459,True,
+44,200,21722.97,50,461,True,
+45,200,24845.0,50,443,True,
+46,200,29280.71,50,419,True,
+47,200,31570.73,50,447,True,
+48,200,36143.91,50,438,True,
+49,200,40170.3,50,406,True,
+50,200,44208.31,50,432,True,
+51,200,47691.76,50,439,True,
+52,200,51775.3,50,440,True,
+53,200,2740.51,50,462,True,
+54,200,4292.27,50,444,True,
+55,200,7404.62,50,417,True,
+56,200,11990.97,50,416,True,
+57,200,15030.02,50,424,True,
+58,200,18638.16,50,424,True,
+59,200,21205.19,50,426,True,
+60,200,24328.24,50,439,True,
+61,200,28140.89,50,425,True,
+62,200,32141.53,50,427,True,
+63,200,35573.28,50,441,True,
+64,200,40750.26,50,415,True,
+65,200,43632.0,50,435,True,
+66,200,47108.34,50,451,True,
+67,200,50614.36,50,420,True,
+68,200,54103.7,50,446,True,
+69,200,2231.59,50,443,True,
+70,200,6885.04,50,416,True,
+71,200,8953.22,50,425,True,
+72,200,14522.6,50,445,True,
+73,200,16574.32,50,441,True,
+74,200,19661.59,50,453,True,
+75,200,23285.57,50,429,True,
+76,200,27004.44,50,430,True,
+77,200,31000.49,50,393,True,
+78,200,33280.75,50,427,True,
+79,200,37868.23,50,448,True,
+80,200,41321.82,50,437,True,
+81,200,45367.47,50,419,True,
+82,200,50026.19,50,444,True,
+83,200,52356.67,50,459,True,
+84,200,1718.51,50,411,True,
+85,200,6371.0,50,399,True,
+86,200,9462.09,50,431,True,
+87,200,12999.47,50,416,True,
+88,200,15543.41,50,469,True,
+89,200,20174.84,50,420,True,
+90,200,22760.02,50,435,True,
+91,200,25359.47,50,465,True,
+92,200,28714.93,50,421,True,
+93,200,32710.74,50,435,True,
+94,200,37289.39,50,423,True,
+95,200,42477.39,50,455,True,
+96,200,44793.5,50,435,True,
+97,200,48866.42,50,412,True,
+98,200,52933.75,50,438,True,
+99,200,54675.02,50,438,True,
+100,200,56051.33,50,454,True,
+101,200,56742.95,50,439,True,
+102,200,57377.99,50,422,True,
+103,200,58006.38,50,444,True,
+104,200,58637.78,50,419,True,
+105,200,59268.7,50,428,True,
+106,200,59897.27,50,451,True,
+107,200,60527.92,50,413,True,
+108,200,61154.62,50,424,True,
+109,200,61785.1,50,440,True,
+110,200,62410.75,50,445,True,
+111,200,63037.81,50,423,True,
+112,200,63675.93,50,454,True,
+113,200,64360.06,50,479,True,
+114,200,65044.08,50,432,True,
+115,200,65726.9,50,457,True,
+116,200,66406.85,50,426,True,
+117,200,67089.82,50,411,True,
+118,200,63644.76,50,428,True,
+119,200,62942.71,50,417,True,
+120,200,62264.35,50,418,True,
+121,200,61554.4,50,428,True,
+122,200,60888.35,50,430,True,
+123,200,60199.77,50,440,True,
+124,200,59502.4,50,436,True,
+125,200,58818.4,50,443,True,
+126,200,58134.54,50,409,True,
+127,0,10995.2,0,0,False,Max retries exceeded
+128,0,10993.59,0,0,False,Max retries exceeded
+129,0,10994.2,0,0,False,Max retries exceeded
+130,0,10994.42,0,0,False,Max retries exceeded
+131,0,10994.85,0,0,False,Max retries exceeded
+132,200,67218.07,50,449,True,
+133,0,10994.31,0,0,False,Max retries exceeded
+134,200,62385.19,50,414,True,
+135,0,10995.09,0,0,False,Max retries exceeded
+136,200,63767.82,50,441,True,
+137,0,10994.15,0,0,False,Max retries exceeded
+138,0,10994.09,0,0,False,Max retries exceeded
+139,0,10994.04,0,0,False,Max retries exceeded
+140,0,10994.26,0,0,False,Max retries exceeded
+141,0,10993.98,0,0,False,Max retries exceeded
+142,0,10993.93,0,0,False,Max retries exceeded
+143,0,10994.37,0,0,False,Max retries exceeded
+144,0,10993.87,0,0,False,Max retries exceeded
+145,0,10993.82,0,0,False,Max retries exceeded
+146,0,10993.76,0,0,False,Max retries exceeded
+147,0,10993.71,0,0,False,Max retries exceeded
+148,0,10993.65,0,0,False,Max retries exceeded
+149,0,10993.05,0,0,False,Max retries exceeded
+150,0,10993.52,0,0,False,Max retries exceeded
+151,0,10993.43,0,0,False,Max retries exceeded
+152,0,10994.37,0,0,False,Max retries exceeded
+153,0,10994.32,0,0,False,Max retries exceeded
+154,0,10994.27,0,0,False,Max retries exceeded
+155,0,10994.21,0,0,False,Max retries exceeded
+156,0,10994.16,0,0,False,Max retries exceeded
+157,0,10994.11,0,0,False,Max retries exceeded
+158,0,10994.05,0,0,False,Max retries exceeded
+159,0,10994.0,0,0,False,Max retries exceeded
+160,0,10993.95,0,0,False,Max retries exceeded
+161,0,10993.89,0,0,False,Max retries exceeded
+162,0,10993.84,0,0,False,Max retries exceeded
+163,0,10993.73,0,0,False,Max retries exceeded
+164,0,10993.67,0,0,False,Max retries exceeded
+165,0,10993.29,0,0,False,Max retries exceeded
+166,0,10993.59,0,0,False,Max retries exceeded
+167,0,10993.52,0,0,False,Max retries exceeded
+168,0,10993.28,0,0,False,Max retries exceeded
+169,0,10993.4,0,0,False,Max retries exceeded
+170,0,10993.35,0,0,False,Max retries exceeded
+171,200,61011.89,50,432,True,
+172,200,61698.36,50,449,True,
+173,200,63076.24,50,437,True,
+174,200,64458.27,50,421,True,
+175,200,65150.74,50,453,True,
+176,200,65843.71,50,444,True,
+177,200,66531.33,50,410,True,
+178,200,67914.2,50,443,True,
+179,200,68603.83,50,433,True,
+180,200,69292.98,50,438,True,
+181,200,69982.01,50,472,True,
+182,200,70669.09,50,442,True,
+183,200,71358.74,50,391,True,
+184,200,72047.47,50,418,True,
+185,200,72741.46,50,418,True,
+186,200,73430.73,50,436,True,
+187,200,74117.89,50,422,True,
+188,200,74803.85,50,446,True,
+189,200,75490.56,50,409,True,
+190,0,10996.57,0,0,False,Max retries exceeded
+191,0,10996.51,0,0,False,Max retries exceeded
+192,0,10996.45,0,0,False,Max retries exceeded
+193,0,10996.4,0,0,False,Max retries exceeded
+194,0,10996.34,0,0,False,Max retries exceeded
+195,0,10996.27,0,0,False,Max retries exceeded
+196,0,10996.21,0,0,False,Max retries exceeded
+197,0,10996.14,0,0,False,Max retries exceeded
+198,0,10996.09,0,0,False,Max retries exceeded
+199,0,10996.03,0,0,False,Max retries exceeded
+200,0,10995.98,0,0,False,Max retries exceeded
+201,0,10995.92,0,0,False,Max retries exceeded
+202,0,10995.85,0,0,False,Max retries exceeded
+203,0,10995.8,0,0,False,Max retries exceeded
+204,0,10995.74,0,0,False,Max retries exceeded
+205,0,10995.67,0,0,False,Max retries exceeded
+206,0,10995.62,0,0,False,Max retries exceeded
+207,0,10995.57,0,0,False,Max retries exceeded
+208,0,10995.51,0,0,False,Max retries exceeded
+209,0,10995.39,0,0,False,Max retries exceeded
+210,0,10995.46,0,0,False,Max retries exceeded
+211,0,10995.33,0,0,False,Max retries exceeded
+212,0,10995.28,0,0,False,Max retries exceeded
+213,0,10995.14,0,0,False,Max retries exceeded
+214,0,10995.03,0,0,False,Max retries exceeded
+215,0,10994.98,0,0,False,Max retries exceeded
+216,0,10994.92,0,0,False,Max retries exceeded
+217,0,10994.78,0,0,False,Max retries exceeded
+218,0,10994.72,0,0,False,Max retries exceeded
+219,0,10994.66,0,0,False,Max retries exceeded
+220,0,10994.6,0,0,False,Max retries exceeded
+221,0,10994.54,0,0,False,Max retries exceeded
+222,0,10994.48,0,0,False,Max retries exceeded
+223,200,71928.84,50,424,True,
+224,200,71237.87,50,456,True,
+225,200,70549.85,50,425,True,
+226,200,69856.59,50,448,True,
+227,200,69167.35,50,407,True,
+228,200,68482.11,50,442,True,
+229,200,67794.24,50,443,True,
+230,200,67105.1,50,419,True,
+231,200,66418.04,50,455,True,
+232,200,65732.24,50,434,True,
+233,200,65044.95,50,446,True,
+234,200,64335.66,50,442,True,
+235,200,67771.09,50,435,True,
+236,200,68453.93,50,432,True,
+237,0,10983.56,0,0,False,Max retries exceeded
+238,0,10989.24,0,0,False,Max retries exceeded
+239,0,10994.54,0,0,False,Max retries exceeded
+240,0,10989.57,0,0,False,Max retries exceeded
+241,0,10998.49,0,0,False,Max retries exceeded
+242,0,10984.66,0,0,False,Max retries exceeded
+243,0,10992.73,0,0,False,Max retries exceeded
+244,0,10983.32,0,0,False,Max retries exceeded
+245,0,10993.47,0,0,False,Max retries exceeded
+246,0,10993.09,0,0,False,Max retries exceeded
+247,0,11000.11,0,0,False,Max retries exceeded
+248,0,10991.85,0,0,False,Max retries exceeded
+249,0,10999.16,0,0,False,Max retries exceeded
+250,0,10995.05,0,0,False,Max retries exceeded
+251,0,11001.83,0,0,False,Max retries exceeded
+252,0,10987.29,0,0,False,Max retries exceeded
+253,0,10983.81,0,0,False,Max retries exceeded
+254,200,72321.17,50,418,True,
+255,0,10998.94,0,0,False,Max retries exceeded
+256,0,10999.09,0,0,False,Max retries exceeded
+257,0,10999.82,0,0,False,Max retries exceeded
+258,0,10998.7,0,0,False,Max retries exceeded
+259,0,10999.57,0,0,False,Max retries exceeded
+260,0,10998.38,0,0,False,Max retries exceeded
+261,0,10999.32,0,0,False,Max retries exceeded
+262,0,10998.1,0,0,False,Max retries exceeded
+263,0,10999.4,0,0,False,Max retries exceeded
+264,0,10999.02,0,0,False,Max retries exceeded
+265,0,10999.51,0,0,False,Max retries exceeded
+266,0,10996.99,0,0,False,Max retries exceeded
+267,0,10999.88,0,0,False,Max retries exceeded
+268,0,10999.93,0,0,False,Max retries exceeded
+269,0,10998.91,0,0,False,Max retries exceeded
+270,200,71634.78,50,404,True,
+271,0,10998.29,0,0,False,Max retries exceeded
+272,0,11000.45,0,0,False,Max retries exceeded
+273,0,10993.87,0,0,False,Max retries exceeded
+274,0,10998.71,0,0,False,Max retries exceeded
+275,0,10998.77,0,0,False,Max retries exceeded
+276,0,10998.58,0,0,False,Max retries exceeded
+277,0,10998.64,0,0,False,Max retries exceeded
+278,0,10998.43,0,0,False,Max retries exceeded
+279,0,10999.67,0,0,False,Max retries exceeded
+280,0,10998.17,0,0,False,Max retries exceeded
+281,0,10998.27,0,0,False,Max retries exceeded
+282,0,10998.02,0,0,False,Max retries exceeded
+283,0,10999.27,0,0,False,Max retries exceeded
+284,0,10997.71,0,0,False,Max retries exceeded
+285,0,10997.55,0,0,False,Max retries exceeded
+286,0,10997.5,0,0,False,Max retries exceeded
+287,0,10997.43,0,0,False,Max retries exceeded
+288,0,10997.37,0,0,False,Max retries exceeded
+289,0,10997.14,0,0,False,Max retries exceeded
+290,0,10997.21,0,0,False,Max retries exceeded
+291,0,10994.78,0,0,False,Max retries exceeded
+292,0,10997.28,0,0,False,Max retries exceeded
+293,0,10996.94,0,0,False,Max retries exceeded
+294,0,10996.41,0,0,False,Max retries exceeded
+295,0,10996.86,0,0,False,Max retries exceeded
+296,0,10994.76,0,0,False,Max retries exceeded
+297,0,10991.34,0,0,False,Max retries exceeded
+298,0,10992.68,0,0,False,Max retries exceeded
+299,0,10993.71,0,0,False,Max retries exceeded
+300,0,10985.58,0,0,False,Max retries exceeded
+301,0,10993.75,0,0,False,Max retries exceeded
+302,0,10993.42,0,0,False,Max retries exceeded
+303,0,10991.17,0,0,False,Max retries exceeded
+304,0,10994.52,0,0,False,Max retries exceeded
+305,0,10991.75,0,0,False,Max retries exceeded
+306,0,10992.88,0,0,False,Max retries exceeded
+307,0,10990.9,0,0,False,Max retries exceeded
+308,0,10993.08,0,0,False,Max retries exceeded
+309,0,10992.86,0,0,False,Max retries exceeded
+310,0,10992.94,0,0,False,Max retries exceeded
+311,0,10992.81,0,0,False,Max retries exceeded
+312,0,10993.02,0,0,False,Max retries exceeded
+313,0,10992.67,0,0,False,Max retries exceeded
+314,0,10990.71,0,0,False,Max retries exceeded
+315,0,10990.89,0,0,False,Max retries exceeded
+316,0,10993.15,0,0,False,Max retries exceeded
+317,0,10993.01,0,0,False,Max retries exceeded
+318,0,10990.12,0,0,False,Max retries exceeded
+319,0,10993.15,0,0,False,Max retries exceeded
+320,0,10990.04,0,0,False,Max retries exceeded
+321,0,10991.72,0,0,False,Max retries exceeded
+322,0,10992.94,0,0,False,Max retries exceeded
+323,0,10991.56,0,0,False,Max retries exceeded
+324,0,10992.82,0,0,False,Max retries exceeded
+325,0,10992.53,0,0,False,Max retries exceeded
+326,0,10991.46,0,0,False,Max retries exceeded
+327,0,10991.32,0,0,False,Max retries exceeded
+328,0,10991.51,0,0,False,Max retries exceeded
+329,0,10992.24,0,0,False,Max retries exceeded
+330,0,10992.3,0,0,False,Max retries exceeded
+331,0,10991.07,0,0,False,Max retries exceeded
+332,0,10991.27,0,0,False,Max retries exceeded
+333,0,10991.98,0,0,False,Max retries exceeded
+334,0,10990.94,0,0,False,Max retries exceeded
+335,0,10990.8,0,0,False,Max retries exceeded
+336,0,10990.99,0,0,False,Max retries exceeded
+337,0,10990.48,0,0,False,Max retries exceeded
+338,0,10990.53,0,0,False,Max retries exceeded
+339,0,10990.42,0,0,False,Max retries exceeded
+340,0,10991.72,0,0,False,Max retries exceeded
+341,0,10991.33,0,0,False,Max retries exceeded
+342,0,10990.26,0,0,False,Max retries exceeded
+343,0,10991.46,0,0,False,Max retries exceeded
+344,0,10991.78,0,0,False,Max retries exceeded
+345,0,10991.02,0,0,False,Max retries exceeded
+346,0,10992.21,0,0,False,Max retries exceeded
+347,0,10988.89,0,0,False,Max retries exceeded
+348,0,10991.16,0,0,False,Max retries exceeded
+349,0,10992.0,0,0,False,Max retries exceeded
+350,0,10990.9,0,0,False,Max retries exceeded
+351,0,10991.22,0,0,False,Max retries exceeded
+352,0,10990.74,0,0,False,Max retries exceeded
+353,0,10990.54,0,0,False,Max retries exceeded
+354,0,10990.57,0,0,False,Max retries exceeded
+355,0,10990.46,0,0,False,Max retries exceeded
+356,0,10990.64,0,0,False,Max retries exceeded
+357,0,10990.27,0,0,False,Max retries exceeded
+358,0,10990.24,0,0,False,Max retries exceeded
+359,0,10990.43,0,0,False,Max retries exceeded
+360,0,10990.69,0,0,False,Max retries exceeded
+361,0,10989.97,0,0,False,Max retries exceeded
+362,0,10989.99,0,0,False,Max retries exceeded
+363,0,10989.83,0,0,False,Max retries exceeded
+364,0,10990.15,0,0,False,Max retries exceeded
+365,0,10989.66,0,0,False,Max retries exceeded
+366,0,10989.61,0,0,False,Max retries exceeded
+367,0,10989.55,0,0,False,Max retries exceeded
+368,0,10989.81,0,0,False,Max retries exceeded
+369,0,10989.23,0,0,False,Max retries exceeded
+370,0,10989.17,0,0,False,Max retries exceeded
+371,0,10989.07,0,0,False,Max retries exceeded
+372,0,10989.35,0,0,False,Max retries exceeded
+373,0,10989.86,0,0,False,Max retries exceeded
+374,0,10989.92,0,0,False,Max retries exceeded
+375,0,10988.61,0,0,False,Max retries exceeded
+376,0,10988.56,0,0,False,Max retries exceeded
+377,0,10989.35,0,0,False,Max retries exceeded
+378,0,10988.35,0,0,False,Max retries exceeded
+379,0,10989.32,0,0,False,Max retries exceeded
+380,0,10988.4,0,0,False,Max retries exceeded
+381,0,10989.13,0,0,False,Max retries exceeded
+382,0,10988.06,0,0,False,Max retries exceeded
+383,0,10988.98,0,0,False,Max retries exceeded
+384,0,10987.96,0,0,False,Max retries exceeded
+385,0,10988.67,0,0,False,Max retries exceeded
+386,0,10988.8,0,0,False,Max retries exceeded
+387,0,10988.51,0,0,False,Max retries exceeded
+388,0,10988.45,0,0,False,Max retries exceeded
+389,0,10988.13,0,0,False,Max retries exceeded
+390,0,10988.07,0,0,False,Max retries exceeded
+391,0,10986.85,0,0,False,Max retries exceeded
+392,0,10987.76,0,0,False,Max retries exceeded
+393,0,10987.51,0,0,False,Max retries exceeded
+394,0,10987.6,0,0,False,Max retries exceeded
+395,0,10987.32,0,0,False,Max retries exceeded
+396,0,10987.18,0,0,False,Max retries exceeded
+397,0,10986.96,0,0,False,Max retries exceeded
+398,0,10986.88,0,0,False,Max retries exceeded
+399,0,10986.72,0,0,False,Max retries exceeded
+400,0,10986.65,0,0,False,Max retries exceeded
+401,0,10986.39,0,0,False,Max retries exceeded
+402,0,10986.26,0,0,False,Max retries exceeded
+403,0,10986.0,0,0,False,Max retries exceeded
+404,0,10985.96,0,0,False,Max retries exceeded
+405,0,10985.77,0,0,False,Max retries exceeded
+406,0,10985.83,0,0,False,Max retries exceeded
+407,0,10985.65,0,0,False,Max retries exceeded
+408,0,10985.51,0,0,False,Max retries exceeded
+409,0,10985.18,0,0,False,Max retries exceeded
+410,0,10985.16,0,0,False,Max retries exceeded
+411,0,10985.0,0,0,False,Max retries exceeded
+412,0,10985.34,0,0,False,Max retries exceeded
+413,0,10985.41,0,0,False,Max retries exceeded
+414,0,10985.05,0,0,False,Max retries exceeded
+415,0,10984.86,0,0,False,Max retries exceeded
+416,0,10984.78,0,0,False,Max retries exceeded
+417,0,10984.61,0,0,False,Max retries exceeded
+418,0,10984.33,0,0,False,Max retries exceeded
+419,0,10984.26,0,0,False,Max retries exceeded
+420,0,10984.1,0,0,False,Max retries exceeded
+421,0,10984.2,0,0,False,Max retries exceeded
+422,0,10984.07,0,0,False,Max retries exceeded
+423,0,10984.0,0,0,False,Max retries exceeded
+424,0,10983.95,0,0,False,Max retries exceeded
+425,0,10983.86,0,0,False,Max retries exceeded
+426,0,10983.74,0,0,False,Max retries exceeded
+427,0,10983.69,0,0,False,Max retries exceeded
+428,0,10983.57,0,0,False,Max retries exceeded
+429,0,10983.49,0,0,False,Max retries exceeded
+430,0,10983.46,0,0,False,Max retries exceeded
+431,0,10983.37,0,0,False,Max retries exceeded
+432,0,10983.25,0,0,False,Max retries exceeded
+433,0,10983.22,0,0,False,Max retries exceeded
+434,0,10983.15,0,0,False,Max retries exceeded
+435,0,10983.1,0,0,False,Max retries exceeded
+436,0,10999.52,0,0,False,Max retries exceeded
+437,0,10998.42,0,0,False,Max retries exceeded
+438,0,11001.74,0,0,False,Max retries exceeded
+439,0,11001.17,0,0,False,Max retries exceeded
+440,0,11000.79,0,0,False,Max retries exceeded
+441,0,11001.54,0,0,False,Max retries exceeded
+442,0,11000.44,0,0,False,Max retries exceeded
+443,0,10998.13,0,0,False,Max retries exceeded
+444,0,10998.06,0,0,False,Max retries exceeded
+445,0,11000.23,0,0,False,Max retries exceeded
+446,0,11000.4,0,0,False,Max retries exceeded
+447,0,11001.06,0,0,False,Max retries exceeded
+448,0,10997.75,0,0,False,Max retries exceeded
+449,0,11000.89,0,0,False,Max retries exceeded
+450,0,11000.82,0,0,False,Max retries exceeded
+451,0,10998.54,0,0,False,Max retries exceeded
+452,0,11000.63,0,0,False,Max retries exceeded
+453,0,10997.87,0,0,False,Max retries exceeded
+454,0,11000.56,0,0,False,Max retries exceeded
+455,0,11000.49,0,0,False,Max retries exceeded
+456,0,11000.41,0,0,False,Max retries exceeded
+457,0,10997.1,0,0,False,Max retries exceeded
+458,0,10997.25,0,0,False,Max retries exceeded
+459,0,11000.53,0,0,False,Max retries exceeded
+460,0,11000.38,0,0,False,Max retries exceeded
+461,0,11000.32,0,0,False,Max retries exceeded
+462,0,11000.26,0,0,False,Max retries exceeded
+463,0,11000.2,0,0,False,Max retries exceeded
+464,0,10989.52,0,0,False,Max retries exceeded
+465,0,10987.56,0,0,False,Max retries exceeded
+466,200,75183.41,50,405,True,
+467,0,10988.3,0,0,False,Max retries exceeded
+468,0,10987.95,0,0,False,Max retries exceeded
+469,0,10988.85,0,0,False,Max retries exceeded
+470,0,10998.59,0,0,False,Max retries exceeded
+471,0,10987.6,0,0,False,Max retries exceeded
+472,0,10987.47,0,0,False,Max retries exceeded
+473,0,10997.69,0,0,False,Max retries exceeded
+474,0,10987.14,0,0,False,Max retries exceeded
+475,0,10986.97,0,0,False,Max retries exceeded
+476,0,10986.84,0,0,False,Max retries exceeded
+477,0,10986.57,0,0,False,Max retries exceeded
+478,0,10997.85,0,0,False,Max retries exceeded
+479,0,10998.1,0,0,False,Max retries exceeded
+480,0,10988.72,0,0,False,Max retries exceeded
+481,0,10989.38,0,0,False,Max retries exceeded
+482,0,10997.9,0,0,False,Max retries exceeded
+483,0,10997.64,0,0,False,Max retries exceeded
+484,0,10988.36,0,0,False,Max retries exceeded
+485,0,10998.36,0,0,False,Max retries exceeded
+486,0,10998.83,0,0,False,Max retries exceeded
+487,0,10990.17,0,0,False,Max retries exceeded
+488,0,10986.18,0,0,False,Max retries exceeded
+489,0,10987.8,0,0,False,Max retries exceeded
+490,0,10990.78,0,0,False,Max retries exceeded
+491,0,10984.41,0,0,False,Max retries exceeded
+492,0,10988.87,0,0,False,Max retries exceeded
+493,0,10985.71,0,0,False,Max retries exceeded
+494,0,10992.19,0,0,False,Max retries exceeded
+495,0,10988.93,0,0,False,Max retries exceeded
+496,0,10999.0,0,0,False,Max retries exceeded
+497,0,11000.01,0,0,False,Max retries exceeded
+498,0,11000.05,0,0,False,Max retries exceeded
+499,0,10993.09,0,0,False,Max retries exceeded
