@@ -1,5 +1,6 @@
 import os, sys, asyncio, time, logging
 from datetime import datetime
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 from logging_config import setup_component_logger
 from metrics_logger import MetricsLogger
@@ -10,23 +11,41 @@ RUN_ID = os.getenv("RUN_ID", datetime.now().strftime("%Y%m%d_%H%M%S"))
 
 async def run_fault_test(count: int = 200, rate: float = 0.25):
     mlog = MetricsLogger(run_id=f"{RUN_ID}_fault_{count}")
-    sched = MasterScheduler(num_workers=4, max_retries=2, fault_rate=rate)
+    
+    # FIX: Use distributed worker endpoints instead of in-memory num_workers
+    num_workers = int(os.getenv("NUM_WORKERS", "4"))
+    worker_endpoints = [
+        os.getenv(f"WORKER_{i+1}_URL", f"http://localhost:{8081+i}")
+        for i in range(num_workers)
+    ]
+    
+    sched = MasterScheduler(
+        worker_endpoints=worker_endpoints,
+        max_retries=2,
+        fault_rate=rate,
+        routing_strategy="load_aware"
+    )
     await sched.start_health_monitor()
     
     start = time.time()
-    # FIX #1: Add semaphore to limit concurrent scheduler calls
     sema = asyncio.Semaphore(50)
     
     async def task(i):
         async with sema:
             try:
-                # FIX #2: Add timeout to prevent hangs
-                res = await asyncio.wait_for(sched.process_request(TaskRequest(prompt=f"Fault {i}: Load balancing?", max_tokens=20)), timeout=350.0)
+                res = await asyncio.wait_for(
+                    sched.process_request(TaskRequest(prompt=f"Fault {i}: Load balancing?", max_tokens=20)),
+                    timeout=350.0
+                )
             except asyncio.TimeoutError:
                 logger.error(f"Request {i} timed out after 350s")
                 res = {"status": "error", "message": "Scheduler timeout", "worker_id": "unknown", "latency_ms": 350000, "tokens_generated": 0}
-            mlog.log_inference(i, res.get("latency_ms",0), res.get("tokens_generated",0),
-                            res.get("worker_id",""), "least_connections", res.get("status")=="success", res.get("message"))
+            
+            mlog.log_inference(
+                i, res.get("latency_ms",0), res.get("tokens_generated",0),
+                res.get("worker_id",""), "load_aware", 
+                res.get("status")=="success", res.get("message")
+            )
             return res
     
     results = await asyncio.gather(*[task(i) for i in range(count)])
@@ -35,11 +54,11 @@ async def run_fault_test(count: int = 200, rate: float = 0.25):
     ok = sum(1 for r in results if r.get("status")=="success")
     elapsed = time.time() - start
     
-    logger.info(f"Fault test complete: Success={ok}/{count} ({ok/count*100:.1f}%) | Time: {elapsed:.0f}s")
+    logger.info(f"Fault test complete: Success={ok}/{count} ({ok/max(count,1)*100:.1f}%) | Time: {elapsed:.0f}s")
     logger.info(f"Reassigned: {sched.metrics['reassigned']} | Drops: {sched.metrics['failed']}")
     logger.info(f"Metrics saved: {mlog.csv_path}")
     
-    print(f"\nFault Results ({count} reqs, {rate*100}% fail rate): Success={ok}/{count} ({ok/count*100:.1f}%)")
+    print(f"\nFault Results ({count} reqs, {rate*100}% fail rate): Success={ok}/{count} ({ok/max(count,1)*100:.1f}%)")
     print(f"Reassigned: {sched.metrics['reassigned']} | Drops: {sched.metrics['failed']}")
     print(f"Metrics saved: {mlog.csv_path}")
 
