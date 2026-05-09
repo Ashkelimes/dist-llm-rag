@@ -1,0 +1,12 @@
+METRICS SUMMARY | Run ID: 20260509_215122_fault_200
+Generated: 2026-05-09 21:58:53
+============================================================
+
+Total Requests: 200
+Successful: 182 (91.0%)
+Avg Latency: 1468.23 ms
+Min/Max Latency: 520.95 / 1879.98 ms
+Total Tokens: 3640
+
+============================================================
+Files: metrics_20260509_215122_fault_200.csv, summary_20260509_215122_fault_200.txt

@@ -1,0 +1,12 @@
+METRICS SUMMARY | Run ID: 20260509_215122_concurrent_1000_rag
+Generated: 2026-05-09 21:56:43
+============================================================
+
+Total Requests: 1000
+Successful: 1000 (100.0%)
+Avg Latency: 584.59 ms
+Min/Max Latency: 262.02 / 3216.18 ms
+Total Tokens: 10000
+
+============================================================
+Files: metrics_20260509_215122_concurrent_1000_rag.csv, summary_20260509_215122_concurrent_1000_rag.txt
