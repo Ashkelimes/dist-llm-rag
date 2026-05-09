@@ -1,0 +1,11 @@
+timestamp,run_id,event_type,request_id,latency_ms,tokens,worker_id,routing_strategy,success,error,use_rag,gpu_util
+2026-05-09T19:47:35.289391,unknown_concurrent_10,inference,0,3393.42,10,worker-4,least_connections,True,,False,56
+2026-05-09T19:47:35.289493,unknown_concurrent_10,inference,1,3490.29,10,worker-3,least_connections,True,,False,56
+2026-05-09T19:47:35.289508,unknown_concurrent_10,inference,2,3592.18,10,worker-1,least_connections,True,,False,56
+2026-05-09T19:47:35.289516,unknown_concurrent_10,inference,3,3271.72,10,worker-2,least_connections,True,,False,56
+2026-05-09T19:47:35.289523,unknown_concurrent_10,inference,4,420.05,10,worker-2,least_connections,True,,False,56
+2026-05-09T19:47:35.289531,unknown_concurrent_10,inference,5,409.14,10,worker-4,least_connections,True,,False,92
+2026-05-09T19:47:35.289537,unknown_concurrent_10,inference,6,408.23,10,worker-3,least_connections,True,,False,92
+2026-05-09T19:47:35.289543,unknown_concurrent_10,inference,7,406.96,10,worker-1,least_connections,True,,False,92
+2026-05-09T19:47:35.289549,unknown_concurrent_10,inference,8,409.1,10,worker-2,least_connections,True,,False,92
+2026-05-09T19:47:35.289559,unknown_concurrent_10,inference,9,406.14,10,worker-4,least_connections,True,,False,92

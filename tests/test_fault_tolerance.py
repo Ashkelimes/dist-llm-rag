@@ -1,54 +1,47 @@
-import os, sys, asyncio, time, csv
+import os, sys, asyncio, time, logging
 from datetime import datetime
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+from logging_config import setup_component_logger
+from metrics_logger import MetricsLogger
 from scheduler import MasterScheduler, TaskRequest
 
-LOG_FILE = "logs/fault_tolerance_run.csv"
+logger = setup_component_logger("fault_test")
+RUN_ID = os.getenv("RUN_ID", datetime.now().strftime("%Y%m%d_%H%M%S"))
 
-async def run_fault_test(count: int = 200, fault_rate: float = 0.25):
-    print(f"Starting Fault Tolerance Test: {count} requests | Simulated Failure Rate: {fault_rate*100:.0f}%")
-    sched = MasterScheduler(num_workers=4, max_retries=2, fault_injection_rate=fault_rate)
-    start = time.time()
+async def run_fault_test(count: int = 200, rate: float = 0.25):
+    mlog = MetricsLogger(run_id=f"{RUN_ID}_fault_{count}")
+    sched = MasterScheduler(num_workers=4, max_retries=2, fault_rate=rate)
+    await sched.start_health_monitor()
     
-    results = []
+    start = time.time()
+    # FIX #1: Add semaphore to limit concurrent scheduler calls
+    sema = asyncio.Semaphore(50)
+    
     async def task(i):
-        req = TaskRequest(prompt=f"Fault test {i}: What is load balancing?", max_tokens=20)
-        result = await sched.process_request(req)
-        return {
-            "request_id": i,
-            "status": result.get("status", "unknown"),
-            "worker_id": result.get("worker_id", "unknown"),
-            "latency_ms": result.get("latency_ms", 0),
-            "tokens": result.get("tokens_generated", 0),
-            "error": result.get("message", ""),
-            "reassigned": result.get("latency_ms", 0) > 0 and "error" in result.get("message", ""),
-            "timestamp": datetime.now().isoformat()
-        }
-        
+        async with sema:
+            try:
+                # FIX #2: Add timeout to prevent hangs
+                res = await asyncio.wait_for(sched.process_request(TaskRequest(prompt=f"Fault {i}: Load balancing?", max_tokens=20)), timeout=350.0)
+            except asyncio.TimeoutError:
+                logger.error(f"Request {i} timed out after 350s")
+                res = {"status": "error", "message": "Scheduler timeout", "worker_id": "unknown", "latency_ms": 350000, "tokens_generated": 0}
+            mlog.log_inference(i, res.get("latency_ms",0), res.get("tokens_generated",0),
+                            res.get("worker_id",""), "least_connections", res.get("status")=="success", res.get("message"))
+            return res
+    
     results = await asyncio.gather(*[task(i) for i in range(count)])
+    mlog.flush()
+    
+    ok = sum(1 for r in results if r.get("status")=="success")
     elapsed = time.time() - start
     
-    # Save to CSV
-    os.makedirs("logs", exist_ok=True)
-    with open(LOG_FILE, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["request_id","status","worker_id","latency_ms","tokens","error","reassigned","timestamp"])
-        writer.writeheader()
-        writer.writerows(results)
+    logger.info(f"Fault test complete: Success={ok}/{count} ({ok/count*100:.1f}%) | Time: {elapsed:.0f}s")
+    logger.info(f"Reassigned: {sched.metrics['reassigned']} | Drops: {sched.metrics['failed']}")
+    logger.info(f"Metrics saved: {mlog.csv_path}")
     
-    # Summary
-    successful = sum(1 for r in results if r["status"] == "success")
-    reassigned = sum(1 for r in results if r["reassigned"])
-    permanent_drops = sum(1 for r in results if r["status"] == "error")
-    
-    print(f"\nFault Tolerance Results ({count} requests):")
-    print(f"   Success Rate: {successful}/{count} ({successful/count*100:.1f}%)")
-    print(f"   Simulated Failures Triggered: ~{int(count*fault_rate)}")
-    print(f"   Auto-Reassignments: {reassigned}")
-    print(f"   Permanent Drops: {permanent_drops}")
-    print(f"   Total Time: {elapsed:.2f}s | Avg Latency: {sched.metrics['avg_latency_ms']:.2f}ms")
-    print(f"   Worker Health: { {k: v['status'] for k,v in sched.worker_health.items()} }")
-    print(f"   CSV log: {LOG_FILE}")
-    print(f"   Event log: logs/scheduler.log (search for RECOVERY/TASK_FAILED)")
+    print(f"\nFault Results ({count} reqs, {rate*100}% fail rate): Success={ok}/{count} ({ok/count*100:.1f}%)")
+    print(f"Reassigned: {sched.metrics['reassigned']} | Drops: {sched.metrics['failed']}")
+    print(f"Metrics saved: {mlog.csv_path}")
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     asyncio.run(run_fault_test())

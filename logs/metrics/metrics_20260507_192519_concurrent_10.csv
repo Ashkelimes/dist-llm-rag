@@ -1,0 +1,11 @@
+timestamp,run_id,event_type,request_id,latency_ms,tokens,worker_id,routing_strategy,success,error
+2026-05-07T19:30:13.024743,20260507_192519_concurrent_10,inference,0,280055.6,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024794,20260507_192519_concurrent_10,inference,1,280052.75,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024806,20260507_192519_concurrent_10,inference,2,280015.2,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024814,20260507_192519_concurrent_10,inference,3,280051.98,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024820,20260507_192519_concurrent_10,inference,4,280050.78,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024826,20260507_192519_concurrent_10,inference,5,280015.6,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024832,20260507_192519_concurrent_10,inference,6,280015.03,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024838,20260507_192519_concurrent_10,inference,7,280015.22,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024844,20260507_192519_concurrent_10,inference,8,280012.83,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket
+2026-05-07T19:30:13.024850,20260507_192519_concurrent_10,inference,9,280052.37,0,,least_connections,False,SocketTimeoutError: Timeout on reading data from socket

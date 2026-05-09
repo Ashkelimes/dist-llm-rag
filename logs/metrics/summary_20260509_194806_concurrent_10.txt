@@ -1,0 +1,12 @@
+METRICS SUMMARY | Run ID: 20260509_194806_concurrent_10
+Generated: 2026-05-09 19:48:37
+============================================================
+
+Total Requests: 10
+Successful: 10 (100.0%)
+Avg Latency: 469.00 ms
+Min/Max Latency: 395.72 / 718.53 ms
+Total Tokens: 100
+
+============================================================
+Files: metrics_20260509_194806_concurrent_10.csv, summary_20260509_194806_concurrent_10.txt

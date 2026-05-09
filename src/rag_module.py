@@ -5,8 +5,9 @@ from typing import List
 import chromadb
 from chromadb.config import Settings
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(name)s | %(levelname)s | %(message)s')
-logger = logging.getLogger(__name__)
+#FIX: Use centralized component logger instead of basicConfig
+from logging_config import setup_component_logger
+logger = setup_component_logger("rag")
 
 class RAGPipeline:
     def __init__(self, persist_dir="./chroma_db", ollama_url="http://localhost:11434"):

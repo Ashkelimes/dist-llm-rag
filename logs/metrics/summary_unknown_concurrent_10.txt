@@ -1,0 +1,12 @@
+METRICS SUMMARY | Run ID: unknown_concurrent_10
+Generated: 2026-05-09 19:47:35
+============================================================
+
+Total Requests: 10
+Successful: 10 (100.0%)
+Avg Latency: 1620.72 ms
+Min/Max Latency: 406.14 / 3592.18 ms
+Total Tokens: 100
+
+============================================================
+Files: metrics_unknown_concurrent_10.csv, summary_unknown_concurrent_10.txt

@@ -1,0 +1,125 @@
+{
+  "run_id": "20260507_185752_concurrent_10",
+  "events": [
+    {
+      "timestamp": "2026-05-07T18:58:06.778639",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 0,
+      "latency_ms": 8332.9,
+      "tokens": 50,
+      "worker_id": "worker-1",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778691",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 1,
+      "latency_ms": 7835.35,
+      "tokens": 50,
+      "worker_id": "worker-1",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778703",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 2,
+      "latency_ms": 5837.45,
+      "tokens": 50,
+      "worker_id": "worker-2",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778725",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 3,
+      "latency_ms": 7834.55,
+      "tokens": 50,
+      "worker_id": "worker-1",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778731",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 4,
+      "latency_ms": 7834.97,
+      "tokens": 50,
+      "worker_id": "worker-1",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778752",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 5,
+      "latency_ms": 8798.88,
+      "tokens": 50,
+      "worker_id": "worker-1",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778757",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 6,
+      "latency_ms": 4418.34,
+      "tokens": 50,
+      "worker_id": "worker-4",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778763",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 7,
+      "latency_ms": 6408.25,
+      "tokens": 50,
+      "worker_id": "worker-1",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778769",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 8,
+      "latency_ms": 5836.56,
+      "tokens": 50,
+      "worker_id": "worker-1",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2026-05-07T18:58:06.778775",
+      "run_id": "20260507_185752_concurrent_10",
+      "event_type": "inference",
+      "request_id": 9,
+      "latency_ms": 5836.75,
+      "tokens": 50,
+      "worker_id": "worker-3",
+      "routing_strategy": "least_connections",
+      "success": true,
+      "error": null
+    }
+  ]
+}

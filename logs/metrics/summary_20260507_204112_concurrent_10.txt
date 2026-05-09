@@ -1,0 +1,9 @@
+METRICS SUMMARY | Run ID: 20260507_204112_concurrent_10
+Generated: 2026-05-07 20:51:37
+============================================================
+
+Total Requests: 10
+Successful: 0 (0.0%)
+
+============================================================
+Files: metrics_20260507_204112_concurrent_10.csv, summary_20260507_204112_concurrent_10.txt

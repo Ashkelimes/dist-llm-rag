@@ -1,0 +1,125 @@
+{
+  "run_id": "20260507_193545_concurrent_10",
+  "events": [
+    {
+      "timestamp": "2026-05-07T19:45:59.057219",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 0,
+      "latency_ms": 600035.86,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058439",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 1,
+      "latency_ms": 600033.12,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058462",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 2,
+      "latency_ms": 600031.2,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058471",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 3,
+      "latency_ms": 600032.0,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058478",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 4,
+      "latency_ms": 600032.13,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058485",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 5,
+      "latency_ms": 600032.69,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058492",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 6,
+      "latency_ms": 600031.06,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058498",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 7,
+      "latency_ms": 600031.5,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058504",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 8,
+      "latency_ms": 600028.78,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    },
+    {
+      "timestamp": "2026-05-07T19:45:59.058510",
+      "run_id": "20260507_193545_concurrent_10",
+      "event_type": "inference",
+      "request_id": 9,
+      "latency_ms": 600031.2,
+      "tokens": 0,
+      "worker_id": "",
+      "routing_strategy": "least_connections",
+      "success": false,
+      "error": "SocketTimeoutError: Timeout on reading data from socket"
+    }
+  ]
+}
